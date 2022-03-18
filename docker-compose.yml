@@ -1,0 +1,29 @@
+version: "2.1"
+services:
+  backend-system:
+    #image: andylilfs0217/backend-system:latest
+    build: .
+    container_name: backend-system
+    env_file:
+      - .env
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  db:
+    image: linuxserver/mariadb:latest
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - MYSQL_ROOT_PASSWORD=root
+      - TZ=Asia/Hong_Kong
+      - MYSQL_DATABASE=backend_system
+      - MYSQL_USER=andy
+      - MYSQL_PASSWORD=Andyli!!!0217
+    volumes:
+      - ./config:/config
+    ports:
+      - 3307:3306
+    restart: unless-stopped

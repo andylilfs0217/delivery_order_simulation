@@ -17,7 +17,7 @@ readonly Q3="FLUSH PRIVILEGES;"
 readonly SQL="${Q1}${Q2}${Q3}"
 
 # Run the actual command
-$MYSQL -uroot -p -e "$SQL"
+$MYSQL -e "$SQL"
 
 # Let the user know the database was created
 green "Database $DATABASE_NAME and user $DATABASE_USER created with a password you chose"

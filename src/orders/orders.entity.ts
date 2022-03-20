@@ -1,8 +1,8 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 export interface CreateOrderInput {
-  origin: [string, string];
-  destination: [string, string];
+  origin: string[];
+  destination: string[];
 }
 
 export interface OrderDto {
